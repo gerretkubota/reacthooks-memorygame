@@ -28,6 +28,16 @@ module.exports = {
           plugins: ['@babel/plugin-proposal-class-properties'],
         },
       },
+      {
+        test: /\.css?$/,
+        exclude: /node_modules/,
+        loaders: ['style-loader', 'css-loader'],
+      },
+      {
+        test: /\.(jpeg|jpg|png)?$/,
+        exclude: /node_modules/,
+        loader: 'file-loader',
+      },
     ],
   },
   plugins: [
