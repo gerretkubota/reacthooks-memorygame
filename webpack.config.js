@@ -6,6 +6,7 @@ module.exports = {
   output: {
     path: path.resolve(__dirname, 'build'),
     filename: 'webpack-bundle.js',
+    publicPath: '',
   },
   module: {
     rules: [
@@ -42,11 +43,10 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, './public/index.html'),
-      inject: 'body',
+      template: path.resolve(__dirname, 'public/index.html'),
     }),
   ],
   devServer: {
-    contentBase: './src/',
+    historyApiFallback: true,
   },
 };

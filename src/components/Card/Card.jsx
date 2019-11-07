@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 
 import './main.css';
 
-const Card = ({ id, flipped, front, back, width, height, handleClick }) => (
+const Card = ({ id, flipped, type, back, width, height, handleClick }) => (
   <div
     style={{ width, height }}
     className={`flip-container ${flipped ? 'flipped' : ''}`}
@@ -15,10 +15,10 @@ const Card = ({ id, flipped, front, back, width, height, handleClick }) => (
         className={flipped ? 'front' : 'back'}
         src={
           flipped
-            ? `./components/Card/imgs/${front}.png`
-            : `./components/Card/imgs/${back}.png`
+            ? `../src/components/Card/imgs/${type}.png`
+            : `../src/components/Card/imgs/${back}.png`
         }
-        alt={front}
+        alt={type}
       />
     </div>
   </div>
@@ -27,7 +27,7 @@ const Card = ({ id, flipped, front, back, width, height, handleClick }) => (
 Card.propTypes = {
   id: PropTypes.number.isRequired,
   flipped: PropTypes.bool.isRequired,
-  front: PropTypes.string.isRequired,
+  type: PropTypes.string.isRequired,
   back: PropTypes.string.isRequired,
   width: PropTypes.number.isRequired,
   height: PropTypes.number.isRequired,
