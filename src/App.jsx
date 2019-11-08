@@ -8,13 +8,30 @@ import './main.css';
 const App = () => {
   // State hooks
   const [cards, setCards] = useState([]);
+  const [dimension, setDimension] = useState(400);
   const [flipped, setFlipped] = useState([]);
   const [solved, setSolved] = useState([]);
   const [disabled, setDisabled] = useState(false);
   // Behavior of componentDidMount
   useEffect(() => {
     setCards(generateCards());
+    resizeBoard();
   }, []);
+
+  useEffect(() => {
+    const resizeListener = window.addEventListener('resize', resizeBoard);
+
+    return window.removeEventListener('resize', resizeListener);
+  });
+
+  const resizeBoard = () => {
+    setDimension(
+      Math.min(
+        document.documentElement.clientWidth,
+        document.documentElement.clientHeight
+      )
+    );
+  };
 
   const isMatch = id => {
     const clickedCard = cards.find(card => card.id === id);
@@ -62,6 +79,7 @@ const App = () => {
         solved={solved}
         disabled={disabled}
         handleClick={handleClick}
+        dimension={dimension}
       />
     </div>
   );

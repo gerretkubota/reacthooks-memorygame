@@ -7,7 +7,6 @@ const Card = ({
   id,
   flipped,
   type,
-  back,
   width,
   height,
   solved,

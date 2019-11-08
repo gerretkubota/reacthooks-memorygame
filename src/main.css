@@ -7,7 +7,13 @@
 
 .app-container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
+
+  background-color: #0b0b31;
+}
+
+h2 {
+  color: #eee;
 }

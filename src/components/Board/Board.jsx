@@ -4,20 +4,29 @@ import Card from '../Card/Card.jsx';
 
 import './main.css';
 
-const Board = ({ cards, flipped, solved, disabled, handleClick }) => (
-  <div className="board-container">
+const Board = ({
+  cards,
+  flipped,
+  solved,
+  disabled,
+  handleClick,
+  dimension,
+}) => (
+  <div
+    style={{ width: dimension, height: dimension }}
+    className="board-container"
+  >
     {cards.map(card => (
       <Card
         key={`${card.type}${card.id}`}
         id={card.id}
         type={card.type}
-        back="back"
         flipped={flipped.includes(card.id)}
         solved={solved.includes(card.id)}
         disabled={disabled || solved.includes(card.id)}
         handleClick={handleClick}
-        height={100}
-        width={100}
+        width={dimension / 4.5}
+        height={dimension / 4.5}
       />
     ))}
   </div>
@@ -29,6 +38,7 @@ Board.propTypes = {
   solved: PropTypes.arrayOf(Number).isRequired,
   disabled: PropTypes.bool.isRequired,
   handleClick: PropTypes.func.isRequired,
+  dimension: PropTypes.number.isRequired,
 };
 
 export default Board;
