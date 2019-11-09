@@ -3,6 +3,7 @@
   margin: 0;
 
   box-sizing: border-box;
+  font-family: 'Arial';
 }
 
 .app-container {
@@ -14,6 +15,19 @@
   background-color: #0b0b31;
 }
 
-h2 {
+.header {
+  text-align: center;
+}
+
+.header h2 {
   color: #eee;
+  letter-spacing: 0.1em;
+}
+
+.header button {
+  width: 200px;
+  height: 40px;
+
+  font-size: 16px;
+  font-weight: bold;
 }
